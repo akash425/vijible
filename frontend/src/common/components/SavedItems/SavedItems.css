@@ -1,0 +1,8 @@
+.SavedItems {
+    width: 340px;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+    padding: 25px 10px;
+    flex: 0.33;
+}
