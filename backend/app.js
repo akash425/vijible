@@ -1,44 +1,31 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const collegeRoutes = require('./routes/college');
-const userRoutes = require('./routes/userRoutes');
-
+const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
+const cors = require('cors');
 dotenv.config();
 
+const userRoutes = require('./routes/userRoutes');
+const errorHandler = require('./middleware/errorHandler');  
+
 const app = express();
-app.use(bodyParser.json());
+const PORT = process.env.PORT || 5000;
 
-// Routes
-app.use('/api/college', collegeRoutes);
-
-app.get('/profile', (req, res) => {
-  res.send('Profile Page');
-});
-
-app.get('/analytics', (req, res) => {
-  res.send('Analytics Page');
-});
-
-app.post('/upload', (req, res) => {
-  // Handle file upload
-  res.send('File Uploaded');
-});
-
-app.use('/user', userRoutes);
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send("Backend working");
 });
 
+app.use('/user', userRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {})
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));
 
+app.use(errorHandler);
+
 // Start the Server
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
