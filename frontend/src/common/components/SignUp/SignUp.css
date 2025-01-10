@@ -1,67 +1,77 @@
 .signup {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 15px;
-    background-color: #263043;
-    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
-    text-align: center;
-    color: white;
-  }
-  
-  .signup h1 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-  }
-  
-  .signup form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .signup input {
-    padding: 10px 15px;
-    border-radius: 10px;
-    border: none;
-    font-size: 1rem;
-    outline: none;
-  }
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
 
-  .signup select {
-    padding: 10px 15px;
-    border-radius: 10px;
-    border: none;
-    font-size: 1rem;
-    outline: none;
-  }
-  
-  .signup input:focus {
-    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
-  }
-  
-  .signup button {
-    padding: 10px 15px;
-    border-radius: 10px;
-    background-color: #4caf50;
-    color: white;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .signup button:hover {
-    background-color: #45a049;
-  }
-  
-  .signup a {
-    color: #4caf50;
-    text-decoration: none;
-  }
-  
-  .signup a:hover {
-    text-decoration: underline;
-  }
-  
+.role-selection {
+  text-align: center;
+}
+
+.role-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.role-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.role-button:hover {
+  background-color: #45a049;
+}
+
+.form-container {
+  padding: 20px;
+  background-color: #263043;
+  border-radius: 15px;
+  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+}
+
+.form-container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container input {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+.form-container button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.form-container .back-button {
+  background-color: #f44336;
+  margin-top: 10px;
+}
+
+.error {
+  color: #ff4d4d;
+}
