@@ -1,0 +1,147 @@
+.profile-header {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.cover-photo {
+    position: relative;
+    height: 300px;
+    background-color: #ccc;
+}
+
+.cover-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-pic {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid gray;
+    margin-top: -50px;
+}
+
+.profile-pic-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details {
+    flex-grow: 1;
+    margin-left: 20px;
+    text-align: justify;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-profile-btn,
+.add-story-btn {
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-profile-btn:hover,
+.add-story-btn:hover {
+    background-color: #165ecb;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.navigation ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navigation li {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.navigation li:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.cover-photo-placeholder {
+    height: 300px;
+    background-color: #e4e6eb;
+}
+
+.profile-pic-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #e4e6eb;
+    border: 4px solid white;
+    margin-top: -75px;
+}
+
+.college-name {
+    display: block;
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.badge {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.navigation ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navigation li {
+    margin: 0 15px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navigation li.active-tab {
+    background-color: #e4e6eb;
+    /* color: white; */
+  }
+  
+  .tab-section {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  

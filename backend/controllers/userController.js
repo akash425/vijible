@@ -20,7 +20,7 @@ exports.login = async (req, res, next) => {
     console.log("req.body $$$$$$$$$$$$$$$$$$$$$$$");
     console.log(req.body);
     try {
-        const { email, password } = req.body;
+        const { email, password } = req.body;  
 
         // Find user by email
         const user = await User.findOne({ email });

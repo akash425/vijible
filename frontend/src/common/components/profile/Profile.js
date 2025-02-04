@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import './Profile.css';
 import { useNavigate } from 'react-router-dom';
 import { getUserProfile, updateUserProfile } from '../../services/userService';
+import ProfileHeader from './ProfileHeader/ProfileHeader';
 
 function Profile() {
     const [email, setEmail] = useState('akash');
@@ -11,6 +12,12 @@ function Profile() {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
     const navigate = useNavigate();
+
+    const coverPhoto = "https://images.shiksha.com/mediadata/images/1724403408php19ReYs.jpeg"; // Replace with actual URL or leave empty
+    const profilePicture = "https://images.shiksha.com/mediadata/images/1610694069phpYY6cff.jpeg"; // Replace with actual URL or leave empty
+    const name = "Chandigarh University";
+    const friendsCount = "Best Private University in Punjab (India)";
+    const NAACLogo = "https://puchd.ac.in/asset/logo/pu-naac-logo.png";
 
     useEffect(() => {
         async function fetchProfile() {
@@ -44,7 +51,14 @@ function Profile() {
 
     return (
         <div className="profile">
-            <h1>Profile</h1>
+
+            <ProfileHeader
+                coverPhoto={coverPhoto}
+                profilePicture={profilePicture}
+                name={name}
+                friendsCount={friendsCount}
+            />
+            {/* <h1>Profile</h1>
             <form onSubmit={handleUpdate}>
                 <input
                     type="email"
@@ -66,7 +80,7 @@ function Profile() {
                 <button type="submit">Update Profile</button>
             </form>
             {success && <p>Profile updated successfully!</p>}
-            {error && <p>{error}</p>}
+            {error && <p>{error}</p>} */}
             {/* <p>Want to sign in with a different account? <a onClick={handleNavigation}>Sign In</a></p> */}
         </div>
     );

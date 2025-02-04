@@ -5,7 +5,6 @@ import TurnedInNotIcon from "@material-ui/icons/TurnedInNot";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import React from "react";
 import "./Post.css";
-import { ExpandMoreRounded } from "@material-ui/icons";
 function Post({ profilePic, image, username, timestamp, message }) {
   return (
     <div className="post">
