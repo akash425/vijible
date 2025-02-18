@@ -2,7 +2,7 @@ import React from 'react';
 import './Profile.css';
 
 const Profile = () => {
-    const [selectedButton, setSelectedButton] = React.useState('All');
+    const [selectedCategory, setSelectedCategory] = React.useState('All');
     const coverPhoto = "https://images.shiksha.com/mediadata/images/1724403408php19ReYs.jpeg"; // Replace with actual URL or leave empty
     const profilePicture = "https://images.shiksha.com/mediadata/images/1610694069phpYY6cff.jpeg"; // Replace with actual URL or leave empty
     const name = "Chandigarh University";
@@ -109,6 +109,92 @@ const Profile = () => {
         ]
     };
 
+    const expertsData = [
+        {
+            name: "Abhishek Singh",
+            title: "LinkedIn Top Voice'23 | Moody's | NITI Aayog, EAC-PM",
+            company: "Moody's",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "Prayank Madan",
+            title: "Product | Swiggy | InMobi | Classplus | ISB Currently on",
+            company: "Zepto",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "Karuna Kak",
+            title: "Results-Driven Project Manager & Business Analyst",
+            company: "Bajaj Finance Ltd",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "Kushal Agrawal",
+            title: "SDE-2 at Rippling, India",
+            company: "Rippling",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "Venkatesh Bellam",
+            title: "Business System Analyst | Solution Architect |US",
+            company: "Optum",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "Dr. Sarah Chen",
+            title: "Senior Research Scientist | AI Ethics Lead",
+            company: "Google AI",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "Dr. Raj Patel",
+            title: "Chief of Cardiology | Research Lead",
+            company: "Mayo Clinic",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "Maya Rodriguez",
+            title: "VP of Investment Banking | M&A Specialist",
+            company: "Goldman Sachs",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "Alex Thompson",
+            title: "Blockchain Lead | Web3 Architecture",
+            company: "Coinbase",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "Dr. Emily Wong",
+            title: "Head of Oncology Research",
+            company: "Memorial Sloan Kettering",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "James Mitchell",
+            title: "Senior Investment Strategist | Portfolio Manager",
+            company: "BlackRock",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        },
+        {
+            name: "Priya Sharma",
+            title: "ML Engineering Lead | Former Meta",
+            company: "DeepMind",
+            image: "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+        }
+    ];
+
+    // Updated categories with more comprehensive filtering
+    const categories = {
+        'All': expertsData,
+        'Technology': expertsData.filter(expert => 
+            ['Rippling', 'Swiggy', 'InMobi', 'Google AI', 'Coinbase', 'DeepMind'].includes(expert.company)),
+        'Finance': expertsData.filter(expert => 
+            ['Moody\'s', 'Bajaj Finance Ltd', 'Goldman Sachs', 'BlackRock'].includes(expert.company)),
+        'Healthcare': expertsData.filter(expert => 
+            ['Optum', 'Mayo Clinic', 'Memorial Sloan Kettering'].includes(expert.company))
+    };
+
     return (
         <div className='profile'>
             <div className='personal-details'>
@@ -117,54 +203,34 @@ const Profile = () => {
                 </div>
                 <h1>Chandigarh University</h1>
                 <p>Best Private University in Punjab (India)</p>
+                <div className="profile-actions">
+                    <button className="edit-profile-btn">Edit Profile</button>
+                    <button className="logout-btn">Logout</button>
+                </div>
             </div>
             <div className='services'>
                 <div className='nav-buttons'>
-                    <button 
-                        className={`nav-button ${selectedButton === 'All' ? 'selected' : ''}`}
-                        onClick={() => setSelectedButton('All')}
-                    >
-                        All
-                    </button>
-                    <button 
-                        className={`nav-button ${selectedButton === 'Posts' ? 'selected' : ''}`}
-                        onClick={() => setSelectedButton('Posts')}
-                    >
-                        Posts
-                    </button>
-                    <button 
-                        className={`nav-button ${selectedButton === 'Photos' ? 'selected' : ''}`}
-                        onClick={() => setSelectedButton('Photos')}
-                    >
-                        Photos
-                    </button>
-                    <button 
-                        className={`nav-button ${selectedButton === 'Videos' ? 'selected' : ''}`}
-                        onClick={() => setSelectedButton('Videos')}
-                    >
-                        Videos
-                    </button>
+                    {Object.keys(categories).map(category => (
+                        <button 
+                            key={category}
+                            className={`nav-button ${selectedCategory === category ? 'selected' : ''}`}
+                            onClick={() => setSelectedCategory(category)}
+                        >
+                            {category}
+                        </button>
+                    ))}
                 </div>
-
-                <div className='content-section'>
-                    {dummyData[selectedButton]?.map((item, index) => (
-                        <div key={index} className='content-item'>
-                            {item.type === 'photo' || item.imageUrl ? (
-                                <img src={item.imageUrl} alt={item.title} className="content-image" />
-                            ) : item.type === 'video' || item.thumbnailUrl ? (
-                                <div className="video-thumbnail">
-                                    <img src={item.thumbnailUrl} alt={item.title} />
-                                    <span className="duration">{item.duration}</span>
-                                </div>
-                            ) : null}
-                            <h3 className='item-title'>{item.title}</h3>
-                            <p className='item-description'>{item.description}</p>
-                            <div className='item-footer'>
-                                <span className="date">{item.date}</span>
-                                {item.likes && <span className="likes">👍 {item.likes}</span>}
-                                {item.comments && <span className="comments">💬 {item.comments}</span>}
-                                {item.views && <span className="views">👁️ {item.views}</span>}
-                            </div>
+                <div className="experts-grid">
+                    {categories[selectedCategory].map((expert, index) => (
+                        <div key={index} className="expert-card">
+                            <img 
+                                src={expert.image} 
+                                alt={expert.name} 
+                                className="expert-image"
+                            />
+                            <div className="expert-company">{expert.company}</div>
+                            <div className="expert-name">{expert.name}</div>
+                            <div className="expert-title">{expert.title}</div>
                         </div>
                     ))}
                 </div>

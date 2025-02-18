@@ -5,8 +5,8 @@ import
  from 'react-icons/bs'
 import './Sidebar.css'
 import SidebarRow from './SidebarRow'
-import SchoolIcon from '@material-ui/icons/School';
-import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
+import SchoolIcon from '@mui/icons-material/School';
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 
 function Sidebar({openSidebarToggle, OpenSidebar}) {
   return (

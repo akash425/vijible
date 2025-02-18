@@ -6,9 +6,10 @@ import SavedItems from './SavedItems/SavedItems';
 const Home = () => {
     return (
         <div className="app-body">
-            <Sidebar />
+            {/* <Sidebar />
             <Feed />
-            <SavedItems />
+            <SavedItems /> */}
+            <h1>welcome to the Vijible</h1>
         </div>
     )
 }

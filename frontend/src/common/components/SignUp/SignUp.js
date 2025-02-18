@@ -119,31 +119,30 @@ function SignUp() {
                         />
                     </>
                 );
-            case 'student':
+            case 'company':
                 return (
                     <>
                         <input
                             type="text"
-                            name="studentName"
-                            placeholder="Student Name"
-                            value={formData.studentName || ''}
+                            name="companyName"
+                            placeholder="Company Name"
+                            value={formData.companyName || ''}
                             onChange={handleInputChange}
                             required
                         />
                         <input
                             type="text"
-                            name="collegeAddress"
-                            placeholder="College Name"
-                            value={formData.collegeAddress || ''}
+                            name="industry"
+                            placeholder="Industry"
+                            value={formData.industry || ''}
                             onChange={handleInputChange}
                             required
                         />
-                        {/* <AddressFields formData={formData} handleInputChange={handleInputChange} /> */}
-
+                        <AddressFields formData={formData} handleInputChange={handleInputChange} />
                         <input
                             type="tel"
                             name="mobile"
-                            placeholder="Phone Number"
+                            placeholder="Contact Number"
                             value={formData.mobile || ''}
                             onChange={handleInputChange}
                             required
@@ -198,7 +197,7 @@ function SignUp() {
                 <div className="role-selection">
                     <h2>Select Your Role</h2>
                     <div className="role-buttons">
-                        {['college', 'student', 'expert'].map((role) => (
+                        {['college', 'expert', 'company'].map((role) => (
                             <button
                                 key={role}
                                 onClick={() => handleRoleSelection(role)}
@@ -208,6 +207,9 @@ function SignUp() {
                             </button>
                         ))}
                     </div>
+                    <p>
+                        Already have an account? <button className="signin-button" onClick={() => navigate('/signin')}>Sign In</button>
+                    </p>
                 </div>
             ) : (
                 <div className="form-container">

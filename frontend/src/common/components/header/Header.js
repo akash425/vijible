@@ -15,7 +15,7 @@ function Header() {
         <BsHouse className='icon' onClick={() => handleNavigation('/')} />
       </div>
       <div className='header-right'>
-        <BsPersonCircle className='icon' onClick={() => handleNavigation('/signup')} />
+        <BsPersonCircle className='icon' onClick={() => handleNavigation('/signin')} />
       </div>
     </header>
   )

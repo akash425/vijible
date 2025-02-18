@@ -37,6 +37,13 @@ body {
   height: 100vh;
 }
 
-.app-body {
+/* .app-body {
   display: flex !important;
+} */
+
+.app-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }

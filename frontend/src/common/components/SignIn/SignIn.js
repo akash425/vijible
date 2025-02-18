@@ -1,6 +1,6 @@
 // src/SignIn.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SignIn.css';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../services/userService';
@@ -12,6 +12,13 @@ function SignIn() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            navigate('/profile');
+        }
+    }, [navigate]);
+
     const handleLogin = async (e) => {
         e.preventDefault();
         const userData = { email, password };
@@ -19,10 +26,12 @@ function SignIn() {
             const response = await loginUser(userData);
             setError(null);
             if (response.success && response.token) {
-                console.log("response $$$$$$$$$$$$$$$$$$$$$$$$$$$");
-                console.log(response);
                 localStorage.setItem('token', response.token);
-                navigate('/'); // Navigate to the desired page after successful sign-in
+                localStorage.setItem('user', JSON.stringify({
+                    email: response.user.email,
+                }));
+                localStorage.setItem('isAuthenticated', 'true');
+                navigate('/profile');
             } else {
                 setError('Sign-in failed. Please check your credentials.');
             }
@@ -53,7 +62,7 @@ function SignIn() {
             </form>
             {error && <p>{error}</p>}
             <p>
-                Don't have an account? <a href="#signup">Sign Up</a>
+                Don't have an account? <button onClick={() => navigate('/signup')}>Sign Up</button>
             </p>
         </div>
     );

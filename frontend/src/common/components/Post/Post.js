@@ -1,8 +1,7 @@
-import { Avatar } from "@material-ui/core";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import ThumbUpIcon from "@material-ui/icons/ThumbUp";
-import TurnedInNotIcon from "@material-ui/icons/TurnedInNot";
-import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
+import Avatar from "@mui/material/Avatar";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import TurnedInNotIcon from "@mui/icons-material/TurnedInNot";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import React from "react";
 import "./Post.css";
 function Post({ profilePic, image, username, timestamp, message }) {
